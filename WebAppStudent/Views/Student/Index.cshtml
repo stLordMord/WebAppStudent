@@ -1,0 +1,44 @@
+﻿@using WebAppStudent.Models;
+@model List<Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Students</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Email
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditStudent", new { })
+                @Html.ActionLink("Details", "DetailsofStudents", new { })
+                @Html.ActionLink("Delete", "DeleteStudent", new { })
+            </td>
+        </tr>
+    }
+</table>
